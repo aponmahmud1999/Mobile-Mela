@@ -4,7 +4,7 @@ const search =()=>{
     fetch(url)
         .then(res => res.json())
         .then(data => showphones(data.data, text))
-} 
+} //Search phones using api
 const showphones =(mobiles,text)=>{
      const body = document.getElementById('cards')
      body.textContent = ''
@@ -27,7 +27,7 @@ const showphones =(mobiles,text)=>{
 </div>` 
         body.appendChild(div)
     });
-}
+}//Showing result for search
 const showdetailfetch=key=>{
     const text = document.getElementById('search-box');
   
@@ -35,7 +35,7 @@ const showdetailfetch=key=>{
     fetch(url)
         .then(res => res.json())
         .then(data => showdetail(data.data))
-}
+}//Search a specific one by api
 const checkattributes=mobile=>{
     
     if(mobile.mainFeatures.memory==undefined||mobile.mainFeatures.memory=='')
@@ -46,7 +46,7 @@ const checkattributes=mobile=>{
     mobile.mainFeatures.chipSet='unknown'
     if(mobile.others==undefined||mobile.others=='')
     mobile.others=''
-}
+}//Check either the variable is empty or not
 const showdetail=mobile=>{
     document.getElementById('details').textContent=''
     const div = document.createElement('div')
@@ -70,4 +70,4 @@ const showdetail=mobile=>{
     </div>
 </div>` 
 document.getElementById('details').appendChild(div)
-}
+}//Show details of a specific phone
